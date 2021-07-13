@@ -10,20 +10,24 @@
    <div class="form-group">
     <label>CARD  NUMBER</label>
     <input  class="form-control form-control-lg" placeholder=" 16 digits Card Number" 
+    name="cardNumber" #cardNumber="ngModel" [(ngModel)]="service.formData.cardNumber"
     required maxlength="16" minlength="16"
-    name="cardNumber" #cardNumber="ngModel" [(ngModel)]="service.formData.cardNumber">
+    >
    </div>
    <div class="form-row">
    <div class="form-group col-md-6">
     <label>Expire date</label>
-    <input  class="form-control form-control-lg" placeholder="mm/yy" required maxlength="5" minlength="5"
-    name="expireDate" #expireDate="ngModel" [(ngModel)]="service.formData.expireDate">
+    <input  class="form-control form-control-lg" placeholder="mm/yy" 
+    name="expireDate" #expireDate="ngModel" [(ngModel)]="service.formData.expireDate"
+    required maxlength="5" minlength="5">
    </div>
 
    <div class="form-group col-md-6">
     <label>SS 3 Digits</label>
-    <input  class="form-control form-control-lg" placeholder="e.g 123" required maxlength="3" minlength="3"
-    name="securityCode" #securityCode="ngModel" [(ngModel)]="service.formData.securityCode">
+    <input  class="form-control form-control-lg" placeholder="e.g 123" 
+    name="securityCode" #securityCode="ngModel" [(ngModel)]="service.formData.securityCode"
+    required maxlength="3" minlength="3" type="password"
+    >
    </div>
    </div>
    
