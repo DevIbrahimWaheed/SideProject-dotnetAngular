@@ -20,10 +20,24 @@ export class PaymentDetailsFormComponent implements OnInit {
     form.form.reset();
     this.service.formData = new PaymentDetail();
   }
-  onSubmit(form: NgForm) {
-  this.insertRecord(form);
+onSubmit(form: NgForm) {
+  if (this.service.formData.paymentDetailId == 0)
+    this.insertRecord(form);
+  else
+    this.updateRecord(form);
 }
 
+updateRecord(form: NgForm) {
+  this.service.putPaymentDetail().subscribe(
+    res => {
+      this.resetForm(form);
+      this.service.refreshList();
+    },
+    err => {
+      console.log(err);
+    }
+  )
+}
 insertRecord(form: NgForm) {
   this.service.postPaymentDetail().subscribe(
     res => {
