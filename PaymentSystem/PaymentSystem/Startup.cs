@@ -17,7 +17,7 @@ namespace PaymentSystem
 {
     public class Startup
     {
-        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+     
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -36,6 +36,7 @@ namespace PaymentSystem
             });
 
             services.AddDbContext<PaymentDetailsContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DevConn")));
+            services.AddDbContext<UsersDetailContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DevConn")));
             services.AddCors();
         }
 
